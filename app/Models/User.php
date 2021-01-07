@@ -18,8 +18,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
-        'password',
+        'lastname',
+        'document',
     ];
 
     /**
@@ -40,4 +40,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function genders()
+    {
+        return $this->belongsToMany('App\Models\Gender')->as('subscriptions')->withTimestamps();;
+    }
 }
